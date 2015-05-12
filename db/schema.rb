@@ -37,8 +37,9 @@ ActiveRecord::Schema.define(version: 20150511065139) do
     t.datetime "updated_at",            null: false
   end
 
-  add_index "lessons", ["category_id"], name: "lessons_category_id_fk", using: :btree
+  add_index "lessons", ["category_id"], name: "index_lessons_on_category_id", using: :btree
   add_index "lessons", ["user_id", "category_id"], name: "index_lessons_on_user_id_and_category_id", unique: true, using: :btree
+  add_index "lessons", ["user_id"], name: "index_lessons_on_user_id", using: :btree
 
   create_table "relationships", force: :cascade do |t|
     t.integer  "followed_id", limit: 4
@@ -68,9 +69,10 @@ ActiveRecord::Schema.define(version: 20150511065139) do
     t.datetime "updated_at",           null: false
   end
 
-  add_index "word_lessons", ["answer_id"], name: "fk_rails_ede62f8bb4", using: :btree
-  add_index "word_lessons", ["lesson_id", "word_id", "answer_id"], name: "index_word_lessons_on_lesson_id_and_word_id_and_answer_id", unique: true, using: :btree
-  add_index "word_lessons", ["word_id"], name: "fk_rails_219aa2ed67", using: :btree
+  add_index "word_lessons", ["answer_id"], name: "index_word_lessons_on_answer_id", using: :btree
+  add_index "word_lessons", ["lesson_id", "word_id"], name: "index_word_lessons_on_lesson_id_and_word_id", unique: true, using: :btree
+  add_index "word_lessons", ["lesson_id"], name: "index_word_lessons_on_lesson_id", using: :btree
+  add_index "word_lessons", ["word_id"], name: "index_word_lessons_on_word_id", using: :btree
 
   create_table "words", force: :cascade do |t|
     t.string   "keyword",     limit: 255
@@ -83,8 +85,8 @@ ActiveRecord::Schema.define(version: 20150511065139) do
   add_index "words", ["category_id"], name: "index_words_on_category_id", unique: true, using: :btree
 
   add_foreign_key "answers", "words"
-  add_foreign_key "lessons", "categories", name: "lessons_category_id_fk"
-  add_foreign_key "lessons", "users", name: "lessons_user_id_fk"
+  add_foreign_key "lessons", "categories"
+  add_foreign_key "lessons", "users"
   add_foreign_key "word_lessons", "answers"
   add_foreign_key "word_lessons", "lessons"
   add_foreign_key "word_lessons", "words"

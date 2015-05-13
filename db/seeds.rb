@@ -9,3 +9,12 @@ User.create username: "Sokheng",
             email: "yongsokheng@gmail.com",
             password: "123456",
             password_confirmation: "123456"
+
+Category.create name: "Information Technoloy",
+                description: "This is important"
+Category.create name: "Java",
+                description: "Economy"
+Category.create name: "Environment",
+                description: "This is important"
+Category.create name: "Technoloy",
+                description: "This is important"

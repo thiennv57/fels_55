@@ -1,9 +1,14 @@
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-2">
     <%= gravatar_for @user %>
   </div>
-  <div class="col-md-8">
-    <h5><b>Name:</b> <%= @user.username %></h5>
-    <h5><b>Email:</b> <%= @user.email %></h5>
+  <div class="col-md-5">
+    <div class="profile-table">
+      <%= render "shared/profile" %>
+    </div>
+    <div class="errors"></div>
+    <div class="profile-edit-form">
+      <%= link_to t(:lb_edit), edit_user_path(@user), class: "btn btn-primary", remote: true %>
+    </div>
   </div>
 </div>

@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  lb_save: "Save"
+  lb_edit: "Edit Profile"
+  lb_cancel: "Cancel"
+  lb_change_avatar: "Change Avatar"
+  lb_create: "Create Account"

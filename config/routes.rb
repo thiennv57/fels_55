@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :lessons, only: [:show, :create, :update]
   end
 
+  resources :words, only: [:index]
+
   namespace :admin do
     root to: "categories#index"
     resources :categories
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   get "logout" => "sessions#destroy"
+  
   get "users/:id/:status", to: "relationships#index", as: :users_with_status
 
   # The priority is based upon order of creation: first created -> highest priority.

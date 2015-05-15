@@ -8,20 +8,24 @@
         <li><%= link_to "Categories", "#" %></li>
         <li><%= link_to "Result", "#" %></li>
         <li><%= link_to "Sign up", "#" %></li>
-        <li><%= link_to "Login", "#" %></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Profile <b class="caret"></b>
-          </a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Profile", "#" %></li>
-              <li><%= link_to "Setting", "#" %></li>
-              <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", "#", method: "delete" %>
-              </li>
-            </ul>
-        </li>
+        <li><%= link_to "Users", '#' %></li>
+        <% if logged_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Profile <b class="caret"></b>
+            </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to t(:lb_profile), "#" %></li>
+                <li><%= link_to t(:lb_setting), "#" %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to t(:lb_logout), "#" %>
+                </li>
+              </ul>
+          </li>
+        <% else %>
+          <li><%= link_to t(:lb_login), login_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>

@@ -8,9 +8,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new params_users
+    @user = User.new user_params
     if @user.save
-      flash.now[:success] = "Account sign up successful"
+      log_in @user
+      flash.now[:success] = t :alert_signup_success
       redirect_to @user     
     else
       render "new"    

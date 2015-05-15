@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_accessor :remember_token
+  
   has_many :lessons, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
                                    foreign_key: "follower_id",
@@ -14,9 +16,34 @@ class User < ActiveRecord::Base
                     format: {with: VALID_EMAIL_REGEX},
                     uniqueness: {case_sensitive: false}
   validates :username, presence: true, length: {maximum: 50}
-  validates :password, length: {minimum: 6}
+  validates :password, length: {minimum: 6}, allow_blank: true
 
   has_secure_password
 
   before_save -> {self.email = email.downcase}
+
+  def digest string
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create string, cost: cost
+  end
+
+  def new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  def remember
+    self.remember_token = new_token
+    update_attributes! remember_digest: digest(remember_token)
+  end
+
+  def authenticated? remember_token
+    return false if remember_digest.nil?
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  def forget
+    update_attributes! remember_digest: nil
+  end
+
 end

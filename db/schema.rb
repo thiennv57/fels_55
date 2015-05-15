@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150511065139) do
+ActiveRecord::Schema.define(version: 20150513040306) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "word_id",        limit: 4
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150511065139) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "password_digest", limit: 255
+    t.string   "remember_digest", limit: 255
   end
 
   create_table "word_lessons", force: :cascade do |t|

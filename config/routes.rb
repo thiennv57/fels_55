@@ -2,8 +2,10 @@ Rails.application.routes.draw do
 
   root "static_pages#home"
   resources :users, except: [:index, :destroy]
-  resources :categories, only: [:index]
-
+  resources :categories, only: [:index] do
+    resources :lessons, only: [:show, :create, :update]
+  end
+  
   get "signup" => "users#new"
   get "login" => "sessions#new"
   post "login" => "sessions#create"

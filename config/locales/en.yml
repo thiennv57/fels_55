@@ -31,5 +31,8 @@ en:
   lb_logout: "Log out"
   lb_profile: "Profile"
   lb_setting: "Setting"
+  lb_submit: "Submit your answer"
+  lb_start: "Start"
+  lb_next: "Next"
   alert_invalid: "Invalid email/password combination"
   alert_signup_success: "Account sign up successful"

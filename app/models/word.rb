@@ -1,9 +1,10 @@
 class Word < ActiveRecord::Base
-  belongs_to :answer
   belongs_to :category
-  has_many :word_lesson
-  has_many :lessons, through: :word_lesson
+  has_many :answers
+  has_many :word_lessons
+  has_many :lessons, through: :word_lessons
   
   validates :keyword, presence: true, length: {maximum: 30}
-  validates :lesson_id, presence: true
+
+  accepts_nested_attributes_for :answers
 end

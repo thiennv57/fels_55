@@ -35,6 +35,7 @@ gem "bootstrap-sass", "3.2.0.0"
 gem "will_paginate", "3.0.7"
 gem "bootstrap-will_paginate", "0.0.10"
 group :development, :test do
+  gem "faker", "1.4.2"
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
   gem "byebug"
 

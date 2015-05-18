@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513040306) do
+ActiveRecord::Schema.define(version: 20150515072857) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "word_id",        limit: 4
     t.string   "meaning",        limit: 255
-    t.boolean  "correct_answer", limit: 1
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "correct_answer", limit: 1,   default: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
-  add_index "answers", ["word_id"], name: "index_answers_on_word_id", unique: true, using: :btree
+  add_index "answers", ["word_id"], name: "index_answers_on_word_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150513040306) do
   end
 
   add_index "lessons", ["category_id"], name: "index_lessons_on_category_id", using: :btree
-  add_index "lessons", ["user_id", "category_id"], name: "index_lessons_on_user_id_and_category_id", unique: true, using: :btree
+  add_index "lessons", ["user_id", "category_id"], name: "index_lessons_on_user_id_and_category_id", using: :btree
   add_index "lessons", ["user_id"], name: "index_lessons_on_user_id", using: :btree
 
   create_table "relationships", force: :cascade do |t|
@@ -77,13 +77,12 @@ ActiveRecord::Schema.define(version: 20150513040306) do
 
   create_table "words", force: :cascade do |t|
     t.string   "keyword",     limit: 255
-    t.integer  "lesson_id",   limit: 4
     t.integer  "category_id", limit: 4
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
 
-  add_index "words", ["category_id"], name: "index_words_on_category_id", unique: true, using: :btree
+  add_index "words", ["category_id"], name: "index_words_on_category_id", using: :btree
 
   add_foreign_key "answers", "words"
   add_foreign_key "lessons", "categories"

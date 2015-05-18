@@ -10,11 +10,29 @@ User.create username: "Sokheng",
             password: "123456",
             password_confirmation: "123456"
 
-Category.create name: "Information Technoloy",
-                description: "This is important"
-Category.create name: "Java",
-                description: "Economy"
-Category.create name: "Environment",
-                description: "This is important"
-Category.create name: "Technoloy",
-                description: "This is important"
+10.times do
+  name = Faker::Commerce.department
+  description = Faker::Lorem.sentence 5
+  Category.create name: name, description: description
+end
+
+categories = Category.all
+30.times do
+  categories.each do |category|
+    keyword = Faker::Lorem.word
+    category.words.create keyword: keyword
+  end
+end
+
+words = Word.all
+3.times do
+  words.each do |word|
+    meaning = Faker::Lorem.word
+    word.answers.create meaning: meaning
+  end
+end
+
+words.each do |word|
+  meaning = Faker::Lorem.word
+  word.answers.create meaning: meaning, correct_answer: true
+end

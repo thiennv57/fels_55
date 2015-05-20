@@ -38,5 +38,8 @@ en:
   lb_close: "Close"
   lb_edit: "Edit"
   lb_delete: "Delete"
+  lb_add_answer: "Add Answer"
+  lb_remove: "Remove"
   alert_invalid: "Invalid email/password combination"
   alert_signup_success: "Account sign up successful"
+  alert_success: "Save success"

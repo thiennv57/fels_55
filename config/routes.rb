@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   resources :categories, except: [:show] do
     resources :lessons, only: [:show, :create, :update]
   end
+
+  namespace :admin do
+    root to: "words#new"
+    resources :words, except: [:destroy]
+  end
   
   get "signup" => "users#new"
   get "login" => "sessions#new"

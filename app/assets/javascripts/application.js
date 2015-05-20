@@ -16,15 +16,26 @@
 //= require bootstrap
 //= require_tree .
 
-$(document).ready(function(){
+function add_fields(link, assoc, content){
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + assoc, "g");
+  $(link).before(content.replace(regexp, new_id));
+}
+
+function remove_fields(link){
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".form-group").hide();
+}
+
+var ready = function(){
   $(".word-list").hide();
   $(".word-list:first").show();
   $(".submit-answer").hide();
-  $(".count").html("1/20")
+  $(".count").html("1/20");
   $num = 1;
   $(".choose").click(function(){
     $num++;
-    $(".count").html($num+"/20")
+    $(".count").html($num+"/20");
     if ($num <= 20){
       $(".word-list:visible").hide().next().next().show();
       if($num == 20){
@@ -32,6 +43,16 @@ $(document).ready(function(){
         $(".choose").hide();
       }
     }
-  return false;
+    return false;
   });
-}); 
+
+  $(".check").on("change", function(){
+    $(".check").not(this).prop("checked", false);
+  });
+}
+
+$(document).ready(ready);
+$(document).on("page:load", ready);
+$(document).on("page:update", ready);
+
+

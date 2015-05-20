@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root "static_pages#home"
   resources :users, except: [:index, :destroy]
-  resources :categories, only: [:index] do
+  resources :categories, except: [:show] do
     resources :lessons, only: [:show, :create, :update]
   end
   
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   get "logout" => "sessions#destroy"
+  get "category" => "static_pages#category"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

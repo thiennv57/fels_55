@@ -53,6 +53,7 @@ en:
   lb_all: "All"
   lb_learn: "Learned"
   lb_notlearn: "Not Learned"
+  lb_invalid: "Invalid problem occur"
   radio_bt_all: "all"
   radio_bt_learn: "learned"
   radio_bt_notlearn: "not_learned"

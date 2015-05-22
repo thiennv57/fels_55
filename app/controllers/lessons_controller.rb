@@ -10,7 +10,7 @@ class LessonsController < ApplicationController
     if @lesson
       redirect_to [@lesson.category, @lesson]
     else
-      flash[:danger] = "Invalid problem occur"
+      flash[:danger] = t :lb_invalid
       redirect_to categories_url
     end
     
@@ -19,9 +19,9 @@ class LessonsController < ApplicationController
   def update
     @lesson = Lesson.find params[:id]
     if @lesson.update_attributes params_lesson
-      redirect_to root_url
+      redirect_to result_path @lesson
     else
-      flash[:danger] = "Invalid problem occur"
+      flash[:danger] = t :lb_invalid
       redirect_to root_url
     end
   end

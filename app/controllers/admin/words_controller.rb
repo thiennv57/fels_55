@@ -33,6 +33,11 @@ class Admin::WordsController < ApplicationController
     end
   end
 
+  def destroy
+    @word = Word.find(params[:id]).destroy
+    redirect_to request.referrer || root_url
+  end
+
   private
   def params_words
     params.require(:word).permit :keyword, :category_id, 

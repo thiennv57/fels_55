@@ -1,14 +1,9 @@
-<tr>
-  <td><%= category.name %></td>
-  <td><%= category.description %></td>
-  <td><%= link_to t(:lb_edit), edit_category_path(category), remote: true,
-                  "data-toggle" => "modal",
-                  "data-target" => "#form-modal",
-                  class: "glyphicon glyphicon-edit" %>
-  </td>
-  <td><%= link_to t(:lb_delete), category, method: :delete, 
-                  data: {confirm: "Are you sure to delete?"}, 
-                  remote: true,
-                  class: "glyphicon glyphicon-remove" %>
-  </td>
-</tr>
+<div class="category-list">
+  <h3><%= category.name %></h3>
+  <p><%= category.description %></p>
+
+  <%= form_for [category, category.lessons.build] do |f| %>
+    <%= f.hidden_field :category_id %>
+    <%= f.submit t(:lb_start), class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -2,20 +2,20 @@ Rails.application.routes.draw do
 
   root "static_pages#home"
   resources :users, except: [:index, :destroy]
-  resources :categories, except: [:show] do
+  resources :categories, only: [:index] do
     resources :lessons, only: [:show, :create, :update]
   end
 
   namespace :admin do
-    root to: "words#new"
-    resources :words, except: [:destroy]
+    root to: "categories#index"
+    resources :categories
+    resources :words, except: [:index]
   end
   
   get "signup" => "users#new"
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   get "logout" => "sessions#destroy"
-  get "category" => "static_pages#category"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

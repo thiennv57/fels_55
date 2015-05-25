@@ -1,6 +1,8 @@
 <div class="row">
-  <div class="col-md-2">
-    <%= gravatar_for @user %>
+  <div class="col-md-3">
+    <div class="user_info"><%= gravatar_for @user %></div>
+    <div class="clearfix"></div>
+    <%= render 'shared/stats' %>
   </div>
   <div class="col-md-5">
     <div class="profile-table">
@@ -10,5 +12,6 @@
     <div class="profile-edit-form">
       <%= link_to t(:lb_edit), edit_user_path(@user), class: "btn btn-primary", remote: true %>
     </div>
+    <%= render 'follow_form' if logged_in? %>
   </div>
 </div>

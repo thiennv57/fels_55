@@ -13,5 +13,9 @@
       <%= link_to t(:lb_edit), edit_user_path(@user), class: "btn btn-primary", remote: true %>
     </div>
     <%= render 'follow_form' if logged_in? %>
+    <div class="activity">
+      <h3>Activities</h3>
+      <%= render "user_activity" %>
+    </div>
   </div>
 </div>

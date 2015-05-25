@@ -28,6 +28,12 @@ function remove_fields(link){
 }
 
 var ready = function(){
+  $(".check").on("change", function(){
+    $(".check").not(this).prop("checked", false);
+  });
+}
+
+var lessons = function(){
   $(".word-list").hide();
   $(".word-list:first").show();
   $(".submit-answer").hide();
@@ -45,14 +51,12 @@ var ready = function(){
     }
     return false;
   });
-
-  $(".check").on("change", function(){
-    $(".check").not(this).prop("checked", false);
-  });
 }
 
 $(document).ready(ready);
+$(document).ready(lessons);
 $(document).on("page:load", ready);
 $(document).on("page:update", ready);
+$(document).on("page:load", lessons);
 
 

@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  #label:
+    #save: "Save"
+    #edit: "Edit"
   lb_save: "Save"
   lb_edit: "Edit Profile"
   lb_cancel: "Cancel"
@@ -50,3 +53,13 @@ en:
   alert_signup_success: "Account sign up successful"
   alert_success: "Save success"
   alert_login: "Please log in"
+  lb_all: "All"
+  lb_learn: "Learned"
+  lb_notlearn: "Not Learned"
+  radio_bt_all: "all"
+  radio_bt_learn: "learned"
+  radio_bt_notlearn: "not_learned"
+  btn_submit: "Submit"
+  alert_invalid: "Invalid email/password combination"
+  alert_signup_success: "Account sign up successful"
+  alert_success: "Save success"

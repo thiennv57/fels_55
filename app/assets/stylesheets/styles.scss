@@ -130,8 +130,15 @@ input {
   width: auto;
   margin-left: 0;
 }
-.word-list {
-  margin-left: 20px;
+
+.show-word-list{
+  text-align: center;
+  font-size: 18px;
+}
+
+th {
+  background-color: green;
+  color: white;
 }
 
 

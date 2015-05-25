@@ -8,6 +8,11 @@ class Lesson < ActiveRecord::Base
 
   before_create :create_word_lessons
 
+  followed_ids = "SELECT followed_id FROM relationships 
+                    WHERE follower_id = :user_id"
+  scope :filter_lesson, ->(user_id){where "user_id IN (#{followed_ids}) 
+                                    OR user_id = :user_id", user_id: user_id}
+  
   private
   def create_word_lessons
     word_ids = category.words.order("RAND()").limit(20).map(&:id)

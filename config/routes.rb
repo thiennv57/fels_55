@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root "static_pages#home"
-  resources :users, except: [:index, :destroy]
+  resources :users
   resources :relationships, only: [:index, :create, :destroy]
   resources :categories, only: [:index] do
     resources :lessons, only: [:show, :create, :update]

@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.paginate page: params[:pages]
+  end
+
   def show
     @user = User.find params[:id]
     @lessons = Lesson.filter_lesson(@user.id).paginate page: params[:page]
@@ -26,6 +30,12 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     @user.update_attributes user_params
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = t :alert_delete
+    redirect_to users_path  
   end
 
   private

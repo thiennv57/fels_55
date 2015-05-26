@@ -1,5 +1,7 @@
 class Admin::CategoriesController < ApplicationController
   before_action :load_category
+  before_action :logged_in_user
+  before_action :admin_user
 
   def index
   end
@@ -38,5 +40,9 @@ class Admin::CategoriesController < ApplicationController
 
   def load_category
     @categories = Category.paginate(page: params[:page]).order :name
+  end
+
+  def admin_user
+    redirect_to root_url unless current_user.admin? 
   end
 end

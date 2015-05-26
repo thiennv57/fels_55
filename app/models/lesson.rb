@@ -11,7 +11,7 @@ class Lesson < ActiveRecord::Base
   followed_ids = "SELECT followed_id FROM relationships 
                     WHERE follower_id = :user_id"
   scope :filter_lesson, ->(user_id){where "user_id IN (#{followed_ids}) 
-                                    OR user_id = :user_id", user_id: user_id}
+                                OR user_id = :user_id", user_id: user_id}
   
   private
   def create_word_lessons

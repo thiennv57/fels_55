@@ -1,4 +1,7 @@
 class Admin::WordsController < ApplicationController
+  before_action :logged_in_user
+  before_action :admin_user
+
   def show
     @word = Word.find params[:id]
     @answer = @word.answers
@@ -42,5 +45,9 @@ class Admin::WordsController < ApplicationController
   def params_words
     params.require(:word).permit :keyword, :category_id, 
               answers_attributes: [:id, :meaning, :correct_answer, :_destroy]
+  end
+
+  def admin_user
+    redirect_to root_url unless current_user.admin? 
   end
 end

@@ -1,4 +1,13 @@
 module ApplicationHelper
+  def full_title page_title = ""
+    base_title = "Framgia E-learning System"
+    if page_title.empty?
+      base_title
+    else
+      "#{page_title} | #{base_title}"
+    end
+  end
+
   def link_to_add_fields label, f, assoc
     new_obj = f.object.class.reflect_on_association(assoc).klass.new
     fields = f.fields_for assoc, new_obj,child_index: "new_#{assoc}" do |builder|

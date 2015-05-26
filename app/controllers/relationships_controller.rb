@@ -1,5 +1,5 @@
 class RelationshipsController < ApplicationController
-  before_action :logged_in_user, except: [:index]
+  before_action :logged_in_user, only: [:create, :destroy]
 
   def index
     status = params[:status]

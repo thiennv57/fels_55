@@ -1,3 +1,4 @@
+<% provide :title, "Profile" %>
 <div class="row">
   <div class="col-md-3">
     <div class="user_info"><%= gravatar_for @user %></div>
@@ -9,10 +10,14 @@
       <%= render "shared/profile" %>
     </div>
     <div class="errors"></div>
-    <div class="profile-edit-form">
-      <%= link_to t(:lb_edit), edit_user_path(@user), class: "btn btn-primary", remote: true %>
-    </div>
-    <%= render 'follow_form' if logged_in? %>
+    <% if logged_in? %>
+      <% if current_user? @user %>
+        <div class="profile-edit-form">
+          <%= link_to t(:lb_edit), edit_user_path(@user), class: "btn btn-primary", remote: true %>
+        </div>
+      <% end %>
+      <%= render 'follow_form' %>
+    <% end %>
     <div class="activity">
       <h3>Activities</h3>
       <%= render "user_activity" %>

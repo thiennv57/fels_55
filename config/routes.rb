@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "static_pages#home"
   resources :users
   resources :relationships, only: [:index, :create, :destroy]
+  resources :results, only: [:index, :show]
   resources :categories, only: [:index] do
     resources :lessons, only: [:show, :create, :update]
   end
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   get "logout" => "sessions#destroy"
   
   get "users/:id/:status", to: "relationships#index", as: :users_with_status
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,9 +1,9 @@
-<% provide :title, "Show Categories" %>
+<% provide :title, t("titles.show_categories") %>
 <div class="row">
   <div class="col-md-10">
     <h3>
       <span class="label label-success">Category: <%= @category.name %></span>
-      <span><%= link_to t(:lb_add_word), new_admin_word_path,
+      <span><%= link_to t("buttons.add_word"), new_admin_word_path,
                          class: "btn btn-primary pull-right" %></span>
     </h3>
     <table class="table table-bordered table-hover">

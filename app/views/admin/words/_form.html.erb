@@ -18,8 +18,8 @@
       <%= f.fields_for :answers do |answer| %>
         <%= render "answer_fields", f: answer %>
       <% end %>
-      <%= link_to_add_fields t(:lb_add_answer), f, :answers %>
+      <%= link_to_add_fields t("links.add_answer"), f, :answers %>
     </div>
   </div>
-  <%= f.submit t(:lb_save), class: "btn btn-primary" %>
+  <%= f.submit t("buttons.save"), class: "btn btn-primary" %>
 <% end %>

@@ -4,6 +4,6 @@
 
   <%= form_for [category, category.lessons.build] do |f| %>
     <%= f.hidden_field :category_id %>
-    <%= f.submit t(:lb_start), class: "btn btn-primary" %>
+    <%= f.submit t("buttons.start"), class: "btn btn-primary" %>
   <% end %>
 </div>

@@ -11,7 +11,7 @@ class Word < ActiveRecord::Base
   accepts_nested_attributes_for :answers
 
   sub_query_learned_by = "id IN (select DISTINCT word_id from word_lessons as wl, lessons as ls 
-                          where wl.lesson_id = ls.id and wl.answer_id <> '' and l.user_id = ?)"
+                          where wl.lesson_id = ls.id and wl.answer_id <> '' and ls.user_id = ?)"
   
   scope :learned_by, -> (user){where sub_query_learned_by, user.id}
   scope :not_learned_by, ->(user){where.not sub_query_learned_by, user.id}

@@ -1,0 +1,4 @@
+word_filter_status:
+  all: "All"
+  learned: "Learned"
+  not_learned: "Not Learned"

@@ -15,7 +15,7 @@ class Admin::WordsController < ApplicationController
   def create
     @word = Word.new params_words
     if @word.save
-      flash[:success] = t :alert_success
+      flash[:success] = t "flashs.save_success"
       redirect_to [:admin, @word]
     else
       render "new"
@@ -29,7 +29,7 @@ class Admin::WordsController < ApplicationController
   def update
     @word = Word.find params[:id]
     if @word.update_attributes params_words
-      flash[:success] = t :alert_success
+      flash[:success] = t "flashs.save_success"
       redirect_to [:admin, @word]
     else
       render "edit"

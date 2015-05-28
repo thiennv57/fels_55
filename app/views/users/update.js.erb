@@ -2,6 +2,6 @@
   $(".errors").html("<%= escape_javascript(render 'shared/errors', object: @user) %>")
 <% else %>
   $(".profile-table").html("<%= escape_javascript(render 'shared/profile') %>")
-  $(".profile-edit-form").html("<%= escape_javascript(link_to t(:lb_edit), edit_user_path(@user), class: "btn btn-primary", remote: true) %>")
+  $(".profile-edit-form").html("<%= escape_javascript(link_to t('buttons.edit'), edit_user_path(@user), class: "btn btn-primary", remote: true) %>")
   $(".errors").html("")
 <% end %>

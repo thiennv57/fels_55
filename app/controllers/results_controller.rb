@@ -6,7 +6,6 @@ class ResultsController < ApplicationController
   end
 
   def show
-    @word_lessons = Lesson.find(params[:id])
-                    .word_lessons.answer_not_nil
+    @word_lessons = Lesson.find(params[:id]).word_lessons.answer_not_nil
   end
 end

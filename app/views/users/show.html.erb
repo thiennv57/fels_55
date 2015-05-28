@@ -1,4 +1,4 @@
-<% provide :title, "Profile" %>
+<% provide :title, t("titles.profile") %>
 <div class="row">
   <div class="col-md-3">
     <div class="user_info"><%= gravatar_for @user %></div>
@@ -13,7 +13,7 @@
     <% if logged_in? %>
       <% if current_user? @user %>
         <div class="profile-edit-form">
-          <%= link_to t(:lb_edit), edit_user_path(@user), class: "btn btn-primary", remote: true %>
+          <%= link_to t("buttons.edit"), edit_user_path(@user), class: "btn btn-primary", remote: true %>
         </div>
       <% end %>
       <%= render 'follow_form' %>

@@ -10,7 +10,7 @@ class LessonsController < ApplicationController
     if @lesson
       redirect_to [@lesson.category, @lesson]
     else
-      flash[:danger] = t :lb_invalid
+      flash[:danger] = t "flashs.invalid"
       redirect_to categories_url
     end
     
@@ -21,7 +21,7 @@ class LessonsController < ApplicationController
     if @lesson.update_attributes params_lesson
       redirect_to result_path @lesson
     else
-      flash[:danger] = t :lb_invalid
+      flash[:danger] = t "flashs.invalid"
       redirect_to root_url
     end
   end

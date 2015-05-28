@@ -23,12 +23,15 @@ en:
   labels:
     login: "Log in"
     signup: "Sign up"
-    lb_remember: "Remember me on this computer"
-    lb_signup_now: "Sign up now!"
+    remember: "Remember me on this computer"
+    signup_now: "Sign up now!"
     all: "All"
     learn: "Learned"
     notlearn: "Not Learned"
     category: "Category"
+    welcome_framgia_e_leaning: "Welcome to Framgia E-Learning System"
+    signup_now: "Signup now to improve your Learning skill"
+    activities: "Activities"
   buttons:
     save: "Save"
     edit: "Edit Profile"
@@ -47,7 +50,6 @@ en:
     follow: "Follow"
     unfollow: "Unfollow"
     submit: "Submit"
-
   menus:
     logout: "Log out"
     profile: "Profile"
@@ -65,10 +67,6 @@ en:
     view_words: "View word"
     view_meanings: "View meaning"
     view_profile: "View my profile"
-  radio_buttons:
-    all: "all"
-    learn: "learned"
-    notlearn: "not_learned"
   flashs:
     invalid: "Invalid email/password combination"
     signup_success: "Account sign up successful"
@@ -88,3 +86,4 @@ en:
     signup: "Sign up"
     profile: "Profile"
     wordlist: "Word List"
+    lesson: "Lessons"

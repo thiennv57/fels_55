@@ -3,15 +3,15 @@
   <div class="row">
     <div class="col-md-8">
       <div class="activity">
-        <h3>Activities</h3>
+        <h3><%= t("labels.activities") %></h3>
         <%= render "users/user_activity" %>
       </div>
     </div>
   </div>
 <% else %>
   <div class="center jumbotron">
-    <h2>Welcome to Framgia E-Learning System</h2>
-    <h4>Signup now to improve your Learning skill</h4>
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+    <h2><%= t("labels.welcome_framgia_e_leaning") %></h2>
+    <h4><%= t("labels.signup_now") %></h4>
+    <%= link_to t("links.sign_up_now"), signup_path, class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>

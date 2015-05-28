@@ -1,4 +1,4 @@
-<% provide :title, "Lessons" %>
+<% provide :title, t("tittles.lesson") %>
 <div class="row">
   <div class="col-md-8">
     <div class="title">
@@ -15,8 +15,8 @@
           <% end %>
         </div>
       <% end %>
-      <%= f.submit t(:lb_submit), class: "btn btn-primary submit-answer" %>
+      <%= f.submit t("buttons.submit"), class: "btn btn-primary submit-answer" %>
     <% end %>
-    <%= link_to t(:lb_next), "", class: "btn btn-primary choose" %>
+    <%= link_to t("buttons.next"), "", class: "btn btn-primary choose" %>
   </div>
 </div>

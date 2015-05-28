@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       log_in @user
-      flash.now[:success] = t :alert_signup_success
+      flash.now[:success] = t "flashs.signup_success"
       redirect_to @user     
     else
       render "new"    
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = t :alert_delete
+    flash[:success] = t "flashs.delete"
     redirect_to users_path  
   end
 

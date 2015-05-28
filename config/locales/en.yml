@@ -69,7 +69,7 @@ en:
     all: "all"
     learn: "learned"
     notlearn: "not_learned"
-  alerts:
+  flashs:
     invalid: "Invalid email/password combination"
     signup_success: "Account sign up successful"
     save_success: "Save success"
@@ -78,8 +78,13 @@ en:
   messages:
     confirm_delete: "Are you sure to delete?"
   titles:
+    header: "Framgia E-Learning System"
     categories: "Cateogies"
     show_categories: "Show categories"
     edit_word: "Edit Word"
     new_word: "New Word"
     show_word: "Show Word"
+    users: "Users"
+    signup: "Sign up"
+    profile: "Profile"
+    wordlist: "Word List"

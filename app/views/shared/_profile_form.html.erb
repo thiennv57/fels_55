@@ -17,6 +17,6 @@
 <script type="text/javascript">
   $(".cancel-btn").click(function(){
     $(".profile-edit-form").html("<%= escape_javascript(link_to t(:lb_edit), edit_user_path(@user), class: 'btn btn-primary', remote: true) %>")
-  $(".errors").html("")
+    $(".errors").html("")
   });
 </script>

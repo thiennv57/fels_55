@@ -15,7 +15,7 @@ class Lesson < ActiveRecord::Base
   
   private
   def create_word_lessons
-    word_ids = category.words.order("RAND()").limit(20).map(&:id)
+    word_ids = category.words.order("RANDOM()").limit(20).map(&:id)
     self.word_ids = word_ids
   end
 end

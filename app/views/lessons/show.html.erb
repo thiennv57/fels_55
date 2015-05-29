@@ -1,4 +1,4 @@
-<% provide :title, t("tittles.lesson") %>
+<% provide :title, t("titles.lesson") %>
 <div class="row">
   <div class="col-md-8">
     <div class="title">
@@ -15,8 +15,9 @@
           <% end %>
         </div>
       <% end %>
-      <%= f.submit t("buttons.submit"), class: "btn btn-primary submit-answer" %>
+      <p><%= link_to t("buttons.next"), "", class: "btn btn-primary choose" %></p>
+      <p class="alert alert-success alert-submit">If you want to submit your answer now, click here:</p>
+      <%= f.submit t("buttons.submit_answer"), class: "btn btn-primary submit-answer" %>
     <% end %>
-    <%= link_to t("buttons.next"), "", class: "btn btn-primary choose" %>
   </div>
 </div>

@@ -4,6 +4,11 @@
       <div class="panel-heading"><b>Result</b></div>
       <div class="panel-body">
         <table class="table">
+          <thead>
+            <th>Word</th>
+            <th>Chosen Meaning</th>
+            <th>Result</th>
+          </thead>           
           <%= render partial: "result", collection: @word_lessons %>
         </table>
       </div>

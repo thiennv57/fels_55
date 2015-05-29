@@ -14,7 +14,6 @@ ready = ->
 lessons = ->
   $(".word-list").hide()
   $(".word-list:first").show()
-  $(".submit-answer").hide()
   $(".count").html "1/20"
   $num = 1
   $(".choose").click ->
@@ -23,8 +22,8 @@ lessons = ->
     if $num <= 20
       $(".word-list:visible").hide().next().next().show()
       if $num is 20
-        $(".submit-answer").show()
         $(".choose").hide()
+        $(".alert-submit").hide()
     false
 
 $(document).ready ready
